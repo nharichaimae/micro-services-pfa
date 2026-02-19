@@ -1,0 +1,92 @@
+// ===== Variables de couleurs (inspirées de votre navigation) =====
+$primary-color: #3498db;          // Bleu principal (pour le bouton)
+$primary-hover: #2980b9;           // Bleu plus foncé au survol
+$text-dark: #2c3e50;               // Couleur du titre
+$input-border: #bdc3c7;            // Bordure de l'input
+$input-focus-border: $primary-color;
+$placeholder-color: #95a5a6;
+$background-page: #f5f7fa;         // Fond clair de la page
+
+// ===== Style global de la page (si besoin) =====
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: $background-page;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+// ===== Conteneur de la section "pièces" =====
+.piece-section {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  padding: 2rem;
+  width: 100%;
+  max-width: 500px;
+  margin: 2rem;
+
+  // Titre
+  h2 {
+    color: $text-dark;
+    font-weight: 400;
+    font-size: 2rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid lighten($primary-color, 30%);
+    padding-bottom: 0.5rem;
+  }
+
+  // Groupe input + bouton
+  .add-form {
+    display: flex;
+    gap: 0.5rem;
+
+    input[type="text"] {
+      flex: 1;
+      padding: 0.8rem 1rem;
+      font-size: 1rem;
+      border: 1px solid $input-border;
+      border-radius: 8px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+
+      &:focus {
+        outline: none;
+        border-color: $input-focus-border;
+        box-shadow: 0 0 0 3px rgba($primary-color, 0.2);
+      }
+
+      &::placeholder {
+        color: $placeholder-color;
+        font-style: italic;
+      }
+    }
+
+    button {
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      background-color: $primary-color;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.2s, transform 0.1s;
+      font-weight: 500;
+
+      &:hover {
+        background-color: $primary-hover;
+      }
+
+      &:active {
+        transform: scale(0.98);
+      }
+
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba($primary-color, 0.3);
+      }
+    }
+  }
+}

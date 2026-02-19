@@ -1,0 +1,166 @@
+.pieces-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+}
+
+.piece-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  padding: 15px;
+  position: relative;
+
+  .piece-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 8px;
+
+    h3 {
+      margin: 0;
+      font-size: 1.2em;
+      color: #333;
+    }
+
+    .piece-actions {
+      position: relative;
+
+      .menu-btn {
+        background: none;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+        padding: 0 5px;
+        color: #666;
+        transition: color 0.2s;
+
+        &:hover {
+          color: #333;
+        }
+      }
+
+      .menu-dropdown {
+        position: absolute;
+        right: 0;
+        top: 25px;
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        min-width: 160px;
+
+        button {
+          padding: 10px 15px;
+          border: none;
+          background: none;
+          text-align: left;
+          cursor: pointer;
+          font-size: 14px;
+          transition: background 0.2s;
+
+          &:hover {
+            background-color: #f5f5f5;
+          }
+        }
+      }
+    }
+  }
+
+  .equipements-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px solid #f0f0f0;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      span {
+        font-size: 0.95em;
+        color: #444;
+      }
+
+      .equip-actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+    }
+  }
+}
+
+// Interrupteur style ON/OFF (switch)
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+    &:checked + .slider {
+      background-color: #4caf50;
+    }
+
+    &:checked + .slider:before {
+      transform: translateX(26px);
+    }
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.3s;
+    border-radius: 24px;
+
+    &:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: 0.3s;
+      border-radius: 50%;
+    }
+  }
+}
+
+// Bouton de suppression (poubelle)
+.delete-btn {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0 4px;
+  color: #999;
+  transition: color 0.2s;
+
+  &:hover {
+    color: #d32f2f;
+  }
+}

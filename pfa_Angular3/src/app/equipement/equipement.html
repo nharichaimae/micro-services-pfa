@@ -1,0 +1,18 @@
+<div class="add-equipement-form">
+  <h3>Ajouter un équipement</h3>
+
+  <form [formGroup]="equipementForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="nom">Nom :</label>
+      <input id="nom" formControlName="nom" type="text" />
+    </div>
+
+    <div>
+      <label for="description">Description :</label>
+      <textarea id="description" formControlName="description"></textarea>
+    </div>
+    <button type="submit">Ajouter</button>
+  </form>
+
+  <p *ngIf="message">{{ message }}</p>
+</div>

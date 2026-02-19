@@ -1,0 +1,27 @@
+<div class="pieces-container">
+  <div class="piece-card" *ngFor="let piece of pieces">
+    <div class="piece-header">
+      <h3>{{ piece.nom }}</h3>
+      <div class="piece-actions">
+        <button class="menu-btn" (click)="piece.showMenu = !piece.showMenu">⋮</button>
+        <div class="menu-dropdown" *ngIf="piece.showMenu">
+           <button (click)="goToAddEquipement(piece.id)">Ajouter Équipement</button>
+          <button (click)="deletePiece(piece.id)">Supprimer Pièce</button>
+        </div>
+      </div>
+    </div>
+
+    <ul class="equipements-list">
+      <li *ngFor="let equip of piece.equipements">
+        <span>{{ equip.nom }}</span>
+        <div class="equip-actions">
+          <label class="switch">
+            <input type="checkbox" [(ngModel)]="equip.etat" (change)="toggleEquip(equip)">
+            <span class="slider round"></span>
+          </label>
+          <button class="delete-btn" (click)="deleteEquip(equip.id)">🗑️</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
